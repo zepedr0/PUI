@@ -1,36 +1,39 @@
 <div class="container mt-5">
-  <form>
-    <div class="row">
-      <div class="form-group col-lg-3 col-6">
-        <label for="inputFrom">From</label>
-        <input type="text" class="form-control" id="inputFrom" placeholder="Name">
-      </div>
-      <div class="form-group col-lg-3 col-6">
-        <label for="inputTo">To</label>
-        <input type="text" class="form-control" id="inputTo" placeholder="Name">
-      </div>
-      <div class="form-group col-lg-3 col-6">
-        <label for="inputSubject">Subject</label>
-        <input type="text" class="form-control" id="inputSubject" placeholder="Subject text">
-      </div>
-      <div class="form-group col-lg-3 col-6">
-        <label for="inputBody">Body</label>
-        <input type="text" class="form-control" id="inputBody" placeholder="Body text">
-      </div>
+  <div class="row">
+    <div class="form-group col-lg-3 col-6">
+      <label for="inputFrom">From</label>
+      <input appBackground type="text" class="form-control" placeholder="Name" [(ngModel)]="email.from" disabled>
     </div>
-  </form>
+    <div class="form-group col-lg-3 col-6">
+      <label for="inputTo">To</label>
+      <input appBackground type="text" class="form-control" placeholder="Name" [(ngModel)]="email.to">
+    </div>
+    <div class="form-group col-lg-3 col-6">
+      <label for="inputSubject">Subject</label>
+      <input appBackground [style.background-color]="email.subject.length>50 ? 'red' : ''" type="text" class="form-control" placeholder="Subject Text" [(ngModel)]="email.subject">
+    </div>
+    <div class="form-group col-lg-3 col-6">
+      <label for="inputBody">Body</label>
+      <input appBackground type="text" class="form-control" placeholder="Body Text" [(ngModel)]="email.body">
+    </div>
+  </div>
   <section>
     <p>
-      From: X
+      From: {{ email.from }}
     </p>
     <p>
-      To: Y
+      To: {{ email.to }}
     </p>
     <p>
-      Subject: EmailReader
+      Subject: {{ email.subject }}
     </p>
     <p>
-      Body: Exercise: Create an Angular application
+      Body: {{ email.body }}
     </p>
   </section>
+  <button (click)="send()" class="btn btn-primary btn-sm mr-1">Send</button>
+  <button (click)="clean()" class="btn btn-primary btn-sm">Clean</button>
+  <div *ngIf="email.to == ''" class="alert alert-danger mt-3" role="alert">
+    The field "To" is empty!
+  </div>
 </div>
