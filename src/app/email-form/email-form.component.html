@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="form-group col-lg-3 col-6">
+        <label for="inputFrom">From</label>
+        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="email.from">
+      </div>
+      <div class="form-group col-lg-3 col-6">
+        <label for="inputTo">To</label>
+        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="email.to">
+      </div>
+      <div class="form-group col-lg-3 col-6">
+        <label for="inputSubject">Subject</label>
+        <input type="text" class="form-control" placeholder="Subject Text" [(ngModel)]="email.subject">
+      </div>
+      <div class="form-group col-lg-3 col-6">
+        <label for="inputBody">Body</label>
+        <input type="text" class="form-control" placeholder="Body Text" [(ngModel)]="email.body">
+      </div>
+    </div>
+    <section>
+      <p>
+        From: {{ email.from }}
+      </p>
+      <p>
+        To: {{ email.to }}
+      </p>
+      <p>
+        Subject: {{ email.subject }}
+      </p>
+      <p>
+        Body: {{ email.body }}
+      </p>
+    </section>
+    <button (click)="create()" class=" btn btn-primary btn-sm"> Create email </button>
+  </div>
+  

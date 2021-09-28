@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div>
+    <label for="textFilter">Filter by text</label>
+    <input type="text" class="form-control" [(ngModel)]="textFilter" name="textFilter">
+  </div>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Subject</th>
+        <th scope="col">View</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let email of emails | filter:textFilter">
+        <td>{{ email.from }}</td>
+        <td>{{ email.to }}</td>
+        <td>{{ email.subject }} </td>
+        <td> <button [routerLink]="['/emailViewer/' + email.id]" class=" btn btn-primary btn-sm"> View </button> </td>
+        <td> <button (click)="delete(email.id)" class="btn btn-primary btn-sm"> Delete </button> </td>
+      </tr>
+    </tbody>
+  </table>
+  <button [routerLink]="['/emailForm/']" class=" btn btn-primary btn-sm"> Create new email </button>
+</div>

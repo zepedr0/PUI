@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div *ngIf="email !== undefined; else elseBlock">
+    <section>
+      <p>
+        Email with ID: {{ email.id }}
+      </p>
+      <p>
+        From: {{ email.from }}
+      </p>
+      <p>
+        To: {{ email.to }}
+      </p>
+      <p>
+        Subject: {{ email.subject }}
+      </p>
+      <p>
+        Body: {{ email.body }}
+      </p>
+    </section>
+  </div>
+  <ng-template #elseBlock>Invalid email id.</ng-template>
+</div>
